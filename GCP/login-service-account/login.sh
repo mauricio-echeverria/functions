@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Login GCP"
-echo "$GCP_JSON_FILE"
-echo "$GCP_JSON_FILE" > /tmp/gcloud-service-account.json
-gcloud auth activate-service-account --key-file=/tmp/gcloud-service-account.json
-cat /tmp/gcloud-service-account.json
+echo "$GCP_JSON_FILE" > gcloud-service-account.json
+gcloud auth activate-service-account --key-file=gcloud-service-account.json
+ls -la
+cat gcloud-service-account.json
 gcloud config set project ${PROJECTID_GCP}
-export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcloud-service-account.json
+export GOOGLE_APPLICATION_CREDENTIALS=gcloud-service-account.json
